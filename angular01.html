@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>第一个简单的angular程序</title>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+    <!--{{'Hello,欢迎来到angular世界!'}}
+    <h3>计算并显示下列两个数值的和</h3>
+    1.98+2.98={{1.98+2.98|number:0}}-->
+    <h3>请在下列文本框中输入任意内容</h3>
+    <div ng-app="myapp" ng-controller="usercontroller">
+        <input id="Text1" type="text" ng-model="name" />
+        <div>{{name}}</div>
+        <ul>
+            <li ng-repeat="stu in data">
+                <span>{{stu.name}}</span>
+                <span>{{stu.sex}}</span>
+                <span>{{stu.age}}</span>
+                <span>{{stud.score}}</span>
+            </li>
+        </ul>
+        执行javascript表达式:<br/>
+        <input type="text" ng-model="expr1" />
+        <button ng-click="testExp1(expr1)">计算</button>
+        <br/><br/> 执行Angular表达式:
+        <br/>
+        <input type="text" ng-model="expr2" />
+        <span ng-bind="$eval(expr2)"></span>
+    </div>
+    <script type="text/javascript">
+        var app = angular.module('myapp', []);
+        app.controller('usercontroller', function ($window,$scope) {
+            $scope.name = ""
+            $scope.data = [
+                { name: "张明明", sex: "女", age: 24, score: 95 },
+                { name: "张明明", sex: "女", age: 24, score: 95 },
+                { name: "张明明", sex: "女", age: 24, score: 95 },
+                { name: "张明明", sex: "女", age: 24, score: 95 },
+                { name: "张明明", sex: "女", age: 24, score: 95 },
+            ];
+            $scope.expr1 = 20;
+            $scope.expr2 = '20+1|number:0';
+            $scope.testExp1 = function (expr) {
+                var newv = parseInt(expr) + 1;
+                console.log(newv);
+                $window.alert($scope.expr1);
+            }
+        });
+    </script>
+</body>
+
+</html>

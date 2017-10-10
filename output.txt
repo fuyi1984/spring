@@ -1,0 +1,20 @@
+﻿菜鸟教程官网地址：www.runoob.com
+drop table if exists moneyactivitiesconcern;
+
+/*==============================================================*/
+/* Table: moneyactivitiesconcern                                */
+/*==============================================================*/
+create table moneyactivitiesconcern
+(
+   id                   bigint not null auto_increment,
+   openid               varchar(255),
+   activitiesid         bigint,
+   createdBy            varchar(255),
+   createdDt            datetime,
+   updatedBy            varchar(255),
+   updatedDt            datetime,
+   version              bigint,
+   primary key (id)
+);
+
+alter table moneyactivitiesconcern comment '红包活动关注表';
